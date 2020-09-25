@@ -4,17 +4,36 @@
   outline: none;
   box-sizing: border-box;
   list-style: none;
-  text-decoration: none;
+  text-decoration: none;  
 }
 
 .header{
   width: 100%;
   /*height: 100%; */
-  height: 100vh;
-  /* position: relative; */
+  height: 100vh;  
+  position: relative;
+  transform-style: inherit;
 }
 
-.nav_menu{
+/*Implementing Paralax*/
+
+
+
+/*Designing the content below*/
+
+.text {
+  z-index: 2;
+  position: absolute;
+  top: 100vh;
+  background: black;
+  line-height: 30px;
+  font-weight: lighter;
+  padding: 40px;
+  color: grey;
+}
+
+/*Nav bar*/
+.nav_menu_icon{
   width: 20px;
   height: 20px;  
   position: fixed;
@@ -25,12 +44,38 @@
   flex-direction: column;
   justify-content: space-evenly;
   cursor: pointer;
+  transition: right .6s;
+}
+
+/*Moving nav bar icon according to the right transition*/
+.change .nav_menu_icon{
+  right: 19%;
 }
 
 .line{
   width: 100%;
   height: 1px;
   background-color: #fff;
+}
+
+/*Temporary color change of nav icon*/
+.change .line{
+  background-color: black;
+  opacity: 0.8;
+}
+
+/*from the below 3 line statements trying to make the hamburger nav bar transform to a close icon*/
+.change .line-1{
+  transform: rotate(45deg) translate(-0.3rem,0.8rem);   
+}
+
+.change .line-2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change .line-3{
+  transform: rotate(-45deg) translate(-0.3rem,-0.8rem);   
 }
 
 .img-edit{
@@ -44,10 +89,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;  
+  opacity: 0.35;  
   animation: scale 20s;  
 }
 
+/*Animation for Background Image*/
 @keyframes scale{
   0%{
     transform: scale(1.1);
@@ -93,5 +139,65 @@
   font-size: 10.5px;
   text-transform: uppercase;
   color: #fff;
-  cursor: pointer;  
+  cursor: pointer;
+  border-radius: 5px;    
 }
+
+/*Side Bar Customization*/
+
+.sidebar{
+  width: 23%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -23%;
+  background-color: #fff;  
+  /*js implementation of transition*/
+  transition: right 0.5s;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.change .sidebar{
+  right: 0;
+}
+
+.menu-bar{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.menu-bar-items{
+  text-align: center;
+  
+}
+
+.menu-link{
+  font-family: "Baloo Da 2", serif;
+  font-size: 35px;
+  color: #555;
+  position: relative;
+}
+
+/*Social Media Icons Customization within the Side Bar check video 34:48*/
+
+/*Hover effect in menu-bar items*/
+
+.menu-link::before{
+  content: attr(menu-content);
+  position: absolute;  
+  color:  #c29525;
+  width: 0;
+  overflow: hidden;  
+  transition: width .5s ease-in-out;
+}
+
+.menu-link:hover::before{
+  width: 100%;  
+}
+
+
+
+
+
