@@ -1,0 +1,356 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;    
+}
+
+.header{
+  width: 100%;
+  /*height: 100%; */
+  height: 100vh;  
+  position: relative;
+  transform-style: inherit;
+  overflow:hidden  
+  
+}
+
+/*Implementing Paralax*/
+.pimg1{  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* opacity: 0.5; */
+  background-image:url('images/bg1.jpg');  
+  animation: scale 20s;
+  opacity: 0.6;
+}
+
+.pimg1{
+  position:relative;  
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  /*
+    fixed = parallax
+    scroll = normal
+  */
+  background-attachment:fixed;
+}
+
+/*Paralax effect after cards*/
+
+.pimg2{
+  background-image:url('images/back1.jpg');
+  min-height: 700px;
+}
+
+/* .ptext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ptext .border{
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+}
+
+.ptext .border.trans{
+  background-color:transparent;
+} */
+
+/*Text infront of the Background Image*/
+@keyframes scale{
+  0%{
+    transform: scale(1.1);
+  }
+  100%{
+      transform: scale(1);
+  }  
+}
+
+.name{
+  position: absolute;
+  top: 38%;
+  left: 13%;
+  
+}
+
+.name h1{
+  font-family: "Baloo Da 2";
+  font-size: 500%;
+  font-weight: 300;
+  color: rgb(35,21,11);
+  /* text-shadow: rgb(0, 0, 0); */
+  line-height: 90px;
+  width: 50%;
+  font-weight: 500;
+    
+}
+
+.name p{
+  font-family: "Josefin Slab",serif;
+  font-size: 125%;
+  color: rgb(36,21,10);  
+  width: 60%;
+  line-height: 25px;
+  margin-bottom: 15px;
+  font-weight: 900;
+  
+}
+
+.name button{
+  width: 120px;
+  height: 40px;
+  background-color: #c29525;
+  border: none;
+  font-family:"Muli";  
+  font-size: 10.5px;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;    
+}
+
+
+/*Designing the content below*/
+
+/* .text {
+  z-index: 2;
+  position: absolute;
+  top: 100vh;
+  background: black;
+  line-height: 30px;
+  font-weight: lighter;
+  padding: 40px;
+  color: grey;
+} */
+
+/*Nav bar*/
+.nav_menu_icon{
+  width: 20px;
+  height: 20px;  
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition: right .6s;
+}
+
+/*Moving nav bar icon according to the right transition*/
+.change .nav_menu_icon{
+  right: 19%;
+}
+
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+/*Temporary color change of nav icon*/
+.change .line{
+  background-color: black;
+  opacity: 0.8;
+}
+
+/*from the below 3 line statements trying to make the hamburger nav bar transform to a close icon*/
+.change .line-1{
+  transform: rotate(45deg) translate(-0.3rem,0.8rem);   
+}
+
+.change .line-2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change .line-3{
+  transform: rotate(-45deg) translate(-0.3rem,-0.8rem);   
+}
+
+
+/*Side Bar Customization*/
+
+.sidebar{
+  width: 23%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -23%;
+  background-color: #fff;  
+  /*js implementation of transition*/
+  transition: right 0.5s;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.change .sidebar{
+  right: 0;
+}
+
+.menu-bar{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.menu-bar-items{
+  text-align: center;
+  
+}
+
+.menu-link{
+  font-family: "Baloo Da 2", serif;
+  font-size: 35px;
+  color: #555;
+  position: relative;
+}
+
+/*Social Media Icons Customization within the Side Bar check video 34:48*/
+
+/*Hover effect in menu-bar items*/
+
+.menu-link::before{
+  content: attr(menu-content);
+  position: absolute;  
+  color:  #c29525;
+  width: 0;
+  overflow: hidden;  
+  transition: width .5s ease-in-out;
+}
+
+.menu-link:hover::before{
+  width: 100%;  
+}
+
+/* Editing the cards  */
+
+.card_layer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0rem 5rem 10rem 5rem; */
+  /* background-color:#40372A; */
+  
+}
+
+.wrapper{
+  display: flex;
+  justify-content: space-evenly;
+  /* setting the margin of the cards using margin-top & bottom*/
+  margin-top: 4rem;
+  margin-bottom: 4rem;  
+  width: 100%;
+}
+
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.card {
+  width: 280px;
+  height: 360px;
+  padding: 2rem, 1rem;
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: flex-end;  
+  box-shadow: 0px 7px 10px rgba(0,0,0,0.5);   
+  transition: 0.5s ease-in-out;
+}
+
+.card:hover{
+  transform: translateY(20px);  
+}
+
+.card::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,176,155,0.5),rgba(150,201,61,1));
+  z-index: 2;
+  transition: 0.4s all;
+  opacity: 0; 
+} 
+
+.card:hover:before{
+  opacity: 1;
+}
+
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card .info{
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s all; 
+  margin-left: 10px;
+  margin-right: 10px;  
+}
+
+.card:hover .info{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.card .info h1{  
+  margin : 15px;
+  text-align: center;    
+}
+
+.card .info p{
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 1px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card .info .btn{
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  display: block;
+  text-align: center;  
+  margin-bottom: 20px; 
+}
+
+.card .info .btn:hover{
+  box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+}
