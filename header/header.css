@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;    
+}
+
+body{
+  background: rgb(5, 78, 66);
+}
+
+
+
+/*Nav bar*/
+.nav_menu_icon{
+  width: 20px;
+  height: 20px;  
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition: right .6s;
+}
+
+/*Moving nav bar icon according to the right transition*/
+.change .nav_menu_icon{
+  right: 19%;
+}
+
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  
+}
+
+/*Temporary color change of nav icon*/
+.change .line{
+  background-color: black;
+  opacity: 0.8;
+}
+
+/*from the below 3 line statements trying to make the hamburger nav bar transform to a close icon*/
+.change .line-1{
+  transform: rotate(45deg) translate(-0.3rem,0.8rem);   
+}
+
+.change .line-2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change .line-3{
+  transform: rotate(-45deg) translate(-0.3rem,-0.8rem);   
+}
